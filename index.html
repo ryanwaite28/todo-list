@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<title>To Do List</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" type="text/css" href="http://ryanwaite28.github.io/my-cdn/css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="http://ryanwaite28.github.io/my-cdn/css/emerald.css"/>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<link rel="stylesheet" type="text/css" media="only screen and (max-width: 785px)" href="mobile-style.css">
+		<link rel="icon" type="image/" size="20x20" href=""/>
+		<script src="http://ryanwaite28.github.io/my-cdn/js/angular.js"></script>
+		<script src="http://ryanwaite28.github.io/my-cdn/js/jquery.js"></script>
+		<script src="http://ryanwaite28.github.io/my-cdn/js/emerald.js"></script>
+		<script src="script.js"></script>
+
+	</head>
+
+	<body ng-app="myApp" ng-controller="masterCtrl">
+
+		<div id="topbar">
+			<h1 class="text-center"><b><em>To Do List</em></b></h1>
+			<hr>
+		</div>
+		
+		<div id="grand-container" class="container-fluid">
+		
+			<div class="col-md-4">
+				
+				<div class="form-div middlr">
+					<h3 class="text-center"><b>New Task</b></h3>
+					<br>
+					<input class="middlr" type="text" id="title" placeholder="Task Title"/>
+					<br>
+					<textarea class="middlr" id="desc" placeholder="Task Description"></textarea>
+					<br>
+					<input class="middlr" type="button" id="submit-btn" value="Add Task" ng-click="addTask()"/>
+					<br>
+					<p class="text-center"><b><span id="msg1"></span></b></p>
+					<hr>
+					<p class="text-center"><b>Number Of Tasks: {{numberOfTasks}}</b><span></span></p>
+					<p class="text-center">Completed Tasks: {{countCompleted()}}<span></span></p>
+					<p class="text-center">Remaining Tasks: {{remainingTasks()}}<span></span></p>
+					<hr>
+					<h3 class="text-center"><b>Archived Task</b></h3>
+					<ul class="todo-list">
+						<li ng-repeat="task in archived">
+							<h4><b>{{task.title}}</b></h4>
+							<p>{{task.desc}}</p>
+							<br>
+							<input type="button" value="Edit" ng-click="editor(this.task)"/>
+							<input type="button" value="Restore" ng-click="restoreTask(this.task)"/>
+							<input type="button" value="Delete" ng-click="deleteTask2(this.task)"/>
+							<hr>
+						</li>
+					</ul>
+					<hr>
+					<div ng-hide="Editor">
+						<h3 class="text-center"><b>Edit Task</b></h3>
+						<br>
+						<input class="middlr" type="text" id="e-title" placeholder=""/>
+						<br>
+						<textarea class="middlr" id="e-desc" placeholder=""></textarea>
+						<br>
+						<input class="middlr" type="button" id="submit-btn2" value="Edit Task" ng-click="editTask()"/>
+						<hr>
+						<input class="middlr" type="button" id="submit-btn3" value="Close Editor" ng-click="closeEditor()"/>
+					</div>
+				</div>
+				
+			</div>
+			
+			<div class="col-md-8">
+				<div class="list-div middlr">
+					<h3 class="text-center"><b>Current Task</b></h3>
+					<hr>
+					<ul class="todo-list">
+						<li ng-repeat="task in tasks">
+							<h4><b>{{task.title}}</b></h4>
+							<p>{{task.desc}}</p>
+							<br>
+							<input id="" name="check" type="checkbox" value="Done" ng-model="task.done"> Done
+							<br><br>
+							<input type="button" value="Edit" ng-click="editor(this.task)"/>
+							<input type="button" value="Archive" ng-click="archiveTask(this.task)"/>
+							<input type="button" value="Delete" ng-click="deleteTask1(this.task)"/>
+							<hr>
+						</li>
+					</ul>
+				</div>
+			</div>
+		
+		</div>
+
+	</body>
+
+</html>

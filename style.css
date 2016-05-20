@@ -1,0 +1,44 @@
+/* New Style */
+
+.brd-1 {
+	border: 1px solid black;
+}
+
+.brd-2 {
+	border-bottom: 1px solid black;
+}
+
+.form-div {
+	border: 1px solid black;
+	padding: 20px;
+	border-radius: 3px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+	width: 325px;
+	max-width: 100%;
+	margin-bottom: 20px;
+}
+
+.form-div textarea{
+	height: 100px;
+}
+
+.list-div {
+	border: 1px solid black;
+	padding: 20px;
+	border-radius: 3px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+	width: 825px;
+	max-width: 100%;
+	margin-bottom: 20px;
+}
+
+.todo-list {
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+
+.todo-list li {
+	display: block;
+	padding: 10px;
+}
